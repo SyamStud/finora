@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Dark teal as the main ink, coral as the warm accent. */
+  --color-brand-50: #f0f7f5;
+  --color-brand-100: #dcece8;
+  --color-brand-200: #bad8d1;
+  --color-brand-300: #8fc2b8;
+  --color-brand-400: #5fa49a;
+  --color-brand-500: #3f887f;
+  --color-brand-600: #2e6d66;
+  --color-brand-700: #245853;
+  --color-brand-800: #1b4b4a;
+  --color-brand-900: #123b3a;
+
+  --color-accent-50: #fff1ec;
+  --color-accent-100: #ffe0d6;
+  --color-accent-200: #ffc2ae;
+  --color-accent-300: #ffa185;
+  --color-accent-400: #f48066;
+  --color-accent-500: #e8694f;
+
+  --color-ink-900: #1e2d2d;
+  --color-ink-700: #3b4d4c;
+  --color-ink-500: #8a9a98;
+  --color-ink-300: #d6e0de;
+  --color-surface: #fff7f2;
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-surface);
+    color: var(--color-ink-900);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-3xl border border-[#f3ece6] bg-white p-4 shadow-[0_6px_22px_rgba(30,64,60,0.05)];
+  }
+
+  .app-card {
+    @apply rounded-3xl border border-[#f3ece6] bg-white p-5 shadow-[0_6px_22px_rgba(30,64,60,0.05)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-800 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-900 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl border border-[#ece4dd] bg-white px-4 py-2.5 text-sm font-semibold text-ink-700 transition hover:bg-[#fffaf6];
+  }
+
+  .field {
+    @apply w-full rounded-2xl border border-[#ece4dd] bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-semibold tracking-wide text-ink-500 uppercase;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight text-ink-900;
+  }
+
+  .amount-positive {
+    @apply text-brand-600;
+  }
+
+  .amount-negative {
+    @apply text-accent-500;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold;
+  }
+
+  .fab {
+    @apply grid place-items-center rounded-full border-2 border-accent-300 text-accent-500 transition hover:bg-accent-50;
+  }
+
+  /* Flat panels — no decorative circle motifs. */
+  .hero-card {
+    @apply relative overflow-hidden rounded-3xl bg-brand-800 p-5 text-white shadow-[0_8px_22px_rgba(27,75,74,0.16)];
+  }
+
+  .bank-card {
+    @apply relative flex h-44 w-full flex-col overflow-hidden rounded-3xl p-5 text-white shadow-[0_8px_20px_rgba(27,75,74,0.14)];
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
